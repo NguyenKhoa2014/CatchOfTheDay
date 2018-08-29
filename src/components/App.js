@@ -6,21 +6,31 @@ import Inventory from './Inventory';
 class App extends React.Component {
   constructor(){
     super();
+    this.addFish = this.addFish.bind(this);
+    //initial state
     this.state = {
-      fishses: {
         fishes: {},
         order: {}
-      }
     }
+     
   }
-  render(){
+  addFish(fish) {
+    //get a copy of our current state
+    const fishes = {...this.state.fishes};
+    //add in our new fish
+    const timestamp = Date.now();
+    fishes[`fish-${timestamp}`] = fish;
+    //set state for the new fish only
+    this.setState({fishes: fishes});
+  }
+  render() {
     return (
       <div className='catch-of-the-day'>
          <div className='menu'>
            <Header tagline='Fresh seafood market' />
          </div>
          <Order />
-         <Inventory /> 
+         <Inventory addFish={this.addFish}/> 
       </div> 
     );
   }
