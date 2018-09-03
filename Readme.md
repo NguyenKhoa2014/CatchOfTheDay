@@ -1,6 +1,7 @@
 # Catch of the day
 Catch-of-the-day is a full stack web application build with Node, React, Firebase and Express that allows users to order fish from an online seafood store
 Firebase is used as a database in this app to keep track of all changes
+localStorage is used to store orders
 
  
 # Getting Started
